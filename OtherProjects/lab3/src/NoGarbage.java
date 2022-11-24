@@ -9,9 +9,9 @@ public class NoGarbage {
         byte[] inputBytes = Files.readAllBytes(Paths.get(filename));
 
         long startTime = System.currentTimeMillis();
-        StringBuilder outputStringBuilder = new StringBuilder();
+        StringBuffer outputStringBuffer = new StringBuffer();
         for (byte b : inputBytes)
-            outputStringBuilder.append((char)b);
+            outputStringBuffer.append((char)b);
         System.out.println(System.currentTimeMillis() - startTime);
     }
 }
