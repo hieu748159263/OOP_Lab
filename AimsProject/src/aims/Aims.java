@@ -13,13 +13,21 @@ import aims.store.Store;
 public class Aims {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static Store store = new Store();
-    private static Cart cart = new Cart();
+    private Store store = new Store();
+    private Cart cart = new Cart();
+
+    public Aims() {
+    }
+
+    public Aims(Media... mediaList) {
+        for (Media media : mediaList)
+            store.addMedia(media);
+    }
 
     class PrintMenuGetChoice {
 
         public static int welcome() {
-            System.out.println("AIMS - Options: ");
+            System.out.println("\nAIMS - Options: ");
             System.out.println("--------------------------------");
             System.out.println("1. View store");
             System.out.println("2. Update store");
@@ -31,7 +39,7 @@ public class Aims {
         }
 
         public static int viewStore() {
-            System.out.println("View store - Options: ");
+            System.out.println("\nView store - Options: ");
             System.out.println("--------------------------------");
             System.out.println("1. See a media\'s details");
             System.out.println("2. Add a media to cart");
@@ -44,7 +52,7 @@ public class Aims {
         }
 
         public static int updateStore() {
-            System.out.println("Update store - Options: ");
+            System.out.println("\nUpdate store - Options: ");
             System.out.println("--------------------------------");
             System.out.println("1. Add a new item");
             System.out.println("2. Remove an item");
@@ -55,7 +63,7 @@ public class Aims {
         }
 
         public static int addNewMedia() {
-            System.out.println("Add new media - Options: ");
+            System.out.println("\nAdd new media - Options: ");
             System.out.println("--------------------------------");
             System.out.println("1. Add a new book");
             System.out.println("2. Add a new CD");
@@ -67,7 +75,7 @@ public class Aims {
         }
 
         public static int viewCart() {
-            System.out.println("View cart - Options: ");
+            System.out.println("\nView cart - Options: ");
             System.out.println("--------------------------------");
             System.out.println("1. Filter medias in cart");
             System.out.println("2. Sort medias in cart");
@@ -81,7 +89,7 @@ public class Aims {
         }
 
         public static int mediaDetails() {
-            System.out.println("Media details - Options: ");
+            System.out.println("\nMedia details - Options: ");
             System.out.println("--------------------------------");
             System.out.println("1. Add to cart");
             System.out.println("2. Play");
@@ -92,7 +100,7 @@ public class Aims {
         }
 
         public static int filterCart() {
-            System.out.println("Filter cart - Options: ");
+            System.out.println("\nFilter cart - Options: ");
             System.out.println("--------------------------------");
             System.out.println("1. Filter by id");
             System.out.println("2. Filter by title");
@@ -103,7 +111,7 @@ public class Aims {
         }
 
         public static int sortCart() {
-            System.out.println("Sort cart - Options: ");
+            System.out.println("\nSort cart - Options: ");
             System.out.println("--------------------------------");
             System.out.println("1. Sort by title");
             System.out.println("2. Sort by cost");
@@ -114,7 +122,7 @@ public class Aims {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public void start() {
         while (true) {
             int choice = PrintMenuGetChoice.welcome();
             switch (choice) {
@@ -129,7 +137,7 @@ public class Aims {
                     break;
                 case 0:
                     System.out.println("Goodbye!");
-                    break;
+                    return;
                 default:
                     System.out.println("Invalid choice!");
                     break;
@@ -137,7 +145,8 @@ public class Aims {
         }
     }
 
-    private static void viewStore() {
+    private void viewStore() {
+        store.printDetail();
         while (true) {
             switch (PrintMenuGetChoice.viewStore()) {
                 case 1: {
@@ -150,7 +159,7 @@ public class Aims {
                         foundMedia.printDetail();
                         switch (PrintMenuGetChoice.mediaDetails()) {
                             case 1:
-                                if (cart.addMedia(foundMedia))
+                                if (!cart.addMedia(foundMedia))
                                     System.out.println("The cart is full. Can't add more!");
                                 else
                                     System.out.println("Added to cart successfully!");
@@ -213,7 +222,7 @@ public class Aims {
         }
     }
 
-    private static void updateStore() {
+    private void updateStore() {
         while (true) {
             switch (PrintMenuGetChoice.updateStore()) {
                 case 1:
@@ -253,7 +262,6 @@ public class Aims {
                             scanner.nextLine();
                             String director = scanner.nextLine();
                             System.out.println("Artist: ");
-                            scanner.nextLine();
                             String artist = scanner.nextLine();
                             CompactDisc newCD = new CompactDisc(id, title, category, cost, director, artist);
                             store.addMedia(newCD);
@@ -283,6 +291,7 @@ public class Aims {
                             System.out.println("Invalid choice!");
                             break;
                     }
+                    break;
                 case 2:
                     store.printDetail();
                     System.out.println("Enter the title of media you want to delete: ");
@@ -290,8 +299,10 @@ public class Aims {
                     Media foundMedia = store.searchMedia(scanner.nextLine());
                     if (foundMedia == null)
                         System.out.println("Media not found!");
-                    else
+                    else {
                         store.removeMedia(foundMedia);
+                        System.out.println("Deleted successfully!");
+                    }
                     break;
                 case 0:
                     return;
@@ -302,20 +313,31 @@ public class Aims {
         }
     }
 
-    private static void viewCart() {
+    private void viewCart() {
+        cart.displayCart();
         while (true) {
             switch (PrintMenuGetChoice.viewCart()) {
                 case 1:
                     switch (PrintMenuGetChoice.filterCart()) {
-                        case 1:
+                        case 1: {
                             System.out.println("Enter the id of media you want to filter: ");
                             scanner.nextLine();
-                            cart.searchCart(scanner.nextInt());
+                            Media mediaFound = cart.searchCart(scanner.nextInt());
+                            if (mediaFound == null)
+                                System.out.println("Media not found!");
+                            else
+                                System.out.println(mediaFound.toString());
+                        }
                             break;
-                        case 2:
+                        case 2: {
                             System.out.println("Enter the title of media you want to filter: ");
                             scanner.nextLine();
-                            cart.searchCart(scanner.nextLine());
+                            Media mediaFound = cart.searchCart(scanner.nextLine());
+                            if (mediaFound == null)
+                                System.out.println("Media not found!");
+                            else
+                                System.out.println(mediaFound.toString());
+                        }
                             break;
                         case 0:
                             break;
@@ -323,6 +345,7 @@ public class Aims {
                             System.out.println("Invalid choice!");
                             break;
                     }
+                    break;
                 case 2:
                     switch (PrintMenuGetChoice.sortCart()) {
                         case 1:
@@ -339,14 +362,17 @@ public class Aims {
                             System.out.println("Invalid choice!");
                             break;
                     }
+                    break;
                 case 3: {
                     System.out.println("Enter the title of media you want to delete: ");
                     scanner.nextLine();
                     Media foundMedia = cart.searchCart(scanner.nextLine());
                     if (foundMedia == null)
                         System.out.println("Media not found!");
-                    else
+                    else {
                         cart.removeMedia(foundMedia);
+                        System.out.println("Deleted successfully!");
+                    }
                 }
                     break;
                 case 4:
@@ -361,6 +387,7 @@ public class Aims {
                     } else {
                         System.out.println("Media is not CD or DVD. Can't play!");
                     }
+                    break;
                 case 5:
                     System.out.println("Order is created!");
                     cart = new Cart();
