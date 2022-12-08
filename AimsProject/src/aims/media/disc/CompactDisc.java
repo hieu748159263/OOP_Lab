@@ -57,12 +57,12 @@ public class CompactDisc extends Disc {
 
     @Override
     public String toString() {
-        return String.format("Title: %s - Category: %s - Artist: %s - Director: %s - Length: %d minute(s): %.2f$", title, category, artist, director, getLength(), cost);
+        return String.format("%s - %s - %s - %d minute(s): %.2f$", title, category, artist, getLength(), cost);
     }
 
     public void play() {
         System.out.println("Playing CD: " + this.getTitle());
-        System.out.println("CD length: " + this.getLength());
+        System.out.println("CD length: " + this.getLength() + " minute(s)");
         for (Track track : tracks)
             track.play();
     }

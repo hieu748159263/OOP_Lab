@@ -19,5 +19,7 @@ public class StoreTest extends MediaObjects {
         store.removeMedia(dvd3);
         store.removeMedia(dvd3);
         store.printDetail();
+
+        store.searchMedia("The Lion King").printDetail();
     }
 }
