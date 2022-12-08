@@ -1,8 +1,8 @@
-package test.disc;
+package test.media.disc;
 
-import test.dvdObjects;
+import test.media.MediaObjects;
 
-public class DiscTest extends dvdObjects {
+public class DiscTest extends MediaObjects {
     public static void main(String[] args) {
 
         // Lab3: test toString function

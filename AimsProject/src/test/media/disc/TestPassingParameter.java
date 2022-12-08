@@ -1,6 +1,6 @@
-package test.disc;
+package test.media.disc;
 
-import aims.disc.DigitalVideoDisc;
+import aims.media.disc.DigitalVideoDisc;
 
 class TestPassingParameter {
     public static void main(String[] args) throws Exception {

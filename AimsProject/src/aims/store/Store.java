@@ -1,43 +1,38 @@
 package aims.store;
 
+import java.util.List;
 import java.util.ArrayList;
-import aims.disc.DigitalVideoDisc;
+
+import aims.media.Media;
 
 public class Store {
 
-    private ArrayList<DigitalVideoDisc> storeItems = new ArrayList<DigitalVideoDisc>();
+    private List<Media> storeItems = new ArrayList<Media>();
 
     public void printDetail() {
         System.out.println("Store items:");
-        for (DigitalVideoDisc dvd : storeItems) {
-            dvd.printDetail();
+        for (Media media : storeItems) {
+            media.printDetail();
         }
     }
 
-    /**
-     * Lab3: implement addDVD method.
-     * <p>
-     * Check if <code> disc </code> is already in the store.
-     * If not, add it to the <code> storeItems </code> array.
-     */
-    public boolean addDVD(DigitalVideoDisc disc) {
-        if (storeItems.contains(disc)) {
-            System.out.println("The disc is already in the store. Can't add!");
+    public boolean addMedia(Media media) {
+        if (storeItems.contains(media))
             return false;
-        }
-        storeItems.add(disc);
+        storeItems.add(media);
         return true;
     }
 
-    /**
-     * Lab3: implement removeDVD method.
-     */
-    public boolean removeDVD(DigitalVideoDisc disc) {
-        if (!storeItems.contains(disc)) {
-            System.out.println("The disc is not in the store. Can't remove!");
+    public boolean removeMedia(Media media) {
+        if (!storeItems.contains(media)) {
+            System.out.println("The media is not in the store. Can't remove!");
             return false;
         }
-        storeItems.remove(disc);
+        storeItems.remove(media);
         return true;
+    }
+
+    public Media searchMedia(String title) {
+        return storeItems.stream().filter(media -> media.getTitle().equalsIgnoreCase(title)).findFirst().orElse(null); 
     }
 }

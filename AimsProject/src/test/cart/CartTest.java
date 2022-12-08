@@ -1,20 +1,20 @@
 package test.cart;
 
 import aims.cart.Cart;
-import aims.disc.DigitalVideoDisc;
-import test.dvdObjects;
+import aims.media.disc.DigitalVideoDisc;
+import test.media.MediaObjects;
 
-public class CartTest extends dvdObjects {
+public class CartTest extends MediaObjects {
     public static void main(String[] args) {
 
         Cart cart = new Cart();
 
         // Lab3: Test overloaded function
-        cart.addDigitalVideoDisc(dvd1);
+        cart.addMedia(dvd1);
         // Works for both array and varagrs
-        cart.addDigitalVideoDisc(new DigitalVideoDisc[] { dvd1, dvd2, dvd3, dvd1, dvd3, dvd2, dvd1 });
+        cart.addMedia(new DigitalVideoDisc[] { dvd1, dvd2, dvd3, dvd1, dvd3, dvd2, dvd1 });
         // Works for varagrs only
-        cart.addDigitalVideoDisc(dvd3, dvd3);
+        cart.addMedia(dvd3, dvd3);
 
         // Lab3: test displayCart and searchCart methods
         cart.displayCart();
