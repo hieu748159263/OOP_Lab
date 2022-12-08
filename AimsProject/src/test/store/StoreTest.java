@@ -1,23 +1,23 @@
 package test.store;
 
-import test.dvdObjects;
 import aims.store.Store;
+import test.media.mediaObjects;
 
-public class StoreTest extends dvdObjects {
+public class StoreTest extends mediaObjects {
     public static void main(String[] args) {
 
         // Lab3: test addDvd and removeDvd methods
         Store store = new Store();
 
-        store.addDVD(dvd1);
-        store.addDVD(dvd2);
-        store.addDVD(dvd3);
-        store.addDVD(dvd2);
+        store.addMedia(dvd1);
+        store.addMedia(dvd2);
+        store.addMedia(dvd3);
+        store.addMedia(dvd2);
         store.printDetail();
         System.out.println();
 
-        store.removeDVD(dvd3);
-        store.removeDVD(dvd3);
+        store.removeMedia(dvd3);
+        store.removeMedia(dvd3);
         store.printDetail();
     }
 }

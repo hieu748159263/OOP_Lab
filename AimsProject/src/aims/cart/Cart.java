@@ -1,106 +1,69 @@
 package aims.cart;
 
-import aims.disc.DigitalVideoDisc;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import aims.media.Media;
 
 public class Cart {
 
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private ArrayList<DigitalVideoDisc> itemsOrdered = new ArrayList<DigitalVideoDisc>();
-    private int qtyOrdered = 0;
+    private List<Media> itemsOrdered = new ArrayList<Media>();
 
-    public int getQtyOrdered() {
-        return qtyOrdered;
-    }
-
-    /**
-     * Lab3: Overload addDigitalVideoDisc method.
-     * <p>
-     * Parameters: disc (a single disc), dvdlist (array or an unknown number of
-     * discs), dvd1, dvd2 (2 discs).
-     */
-    public boolean addDigitalVideoDisc(DigitalVideoDisc disc) {
-        if (qtyOrdered >= MAX_NUMBERS_ORDERED) {
-            System.out.println("The cart is full. Can't add more!");
+    public boolean addMedia(Media media) {
+        if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
             return false;
         }
-        itemsOrdered.add(disc);
-        qtyOrdered++;
+        itemsOrdered.add(media);
         return true;
     }
 
-    public boolean addDigitalVideoDisc(DigitalVideoDisc[] dvdlist) {
-        if (qtyOrdered + dvdlist.length > MAX_NUMBERS_ORDERED) {
+    public boolean addMedia(Media... medialist) {
+        if (itemsOrdered.size() + medialist.length > MAX_NUMBERS_ORDERED) {
             System.out.println("Cart is too full after add items in list. Can't add!");
             return false;
         }
-        Collections.addAll(itemsOrdered, dvdlist);
-        qtyOrdered += dvdlist.length;
+        Collections.addAll(itemsOrdered, medialist);
         return true;
     }
 
-    // public boolean addDigitalVideoDisc(DigitalVideoDisc... dvdlist){
-    // if (qtyOrdered + dvdlist.length > MAX_NUMBERS_ORDERED){
-    // System.out.println("Cart is too full after add items in list. Can't add!");
-    // return false;
-    // }
-    // Collections.addAll(itemsOrdered, dvdlist);
-    // qtyOrdered += dvdlist.length;
-    // return true;
-    // }
-    public boolean addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
-        return addDigitalVideoDisc(new DigitalVideoDisc[] { dvd1, dvd2 });
-    }
-
-    public boolean removeDigitalVideoDisc(DigitalVideoDisc disc) {
-        if (!itemsOrdered.contains(disc)) {
-            System.out.println("The disc is not in the cart. Can't remove!");
-            disc.printDetail();
+    public boolean removeMedia(Media media) {
+        if (!itemsOrdered.contains(media)) {
+            System.out.println("The media is not in the cart. Can't remove!");
             return false;
         }
-        itemsOrdered.remove(disc);
-        qtyOrdered--;
+        itemsOrdered.remove(media);
         return true;
     }
 
     public double totalCost() {
         double total = 0;
-        for (DigitalVideoDisc disc : itemsOrdered) {
-            total += disc.getCost();
+        for (Media media : itemsOrdered) {
+            total += media.getCost();
         }
         return total;
     }
 
-    /**
-     * Lab3: implement displayCart method. 
-     * <p>
-     * Prints every items in cart and cart's total cost.
-     */
     public void displayCart() {
-        System.out.println("***********************CART***********************");
-        for (int i = 0; i < qtyOrdered; i++) {
-            System.out.println((i + 1) + ". DVD - " + itemsOrdered.get(i).toString());
-        }
+        System.out.println("Cart: ");
+        for (int i = 0; i < itemsOrdered.size(); i++)
+            System.out.println((i + 1) + ". " + itemsOrdered.get(i).toString());
         System.out.format("Total cost: %.2f$\n", totalCost());
     }
 
-    /**
-     * Lab3: implement searchCart method.
-     * <p>
-     * Search for a disc in cart by id.
-     * @return the number of dvds with id <code>id</code> in cart.
-     */
-    public void searchCart(int id){
-        long count = itemsOrdered.stream().filter(dvd -> dvd.getId() == id).count();
-        System.out.format("There are %d disc(s) with id %d in your cart.\n", count, id);
+    public Media searchCart(int id) {
+        return itemsOrdered.stream().filter(media -> media.getId() == id).findFirst().orElse(null);
     }
-    /**
-     * Search for a disc in cart by title.
-     * @return the number of dvds with title <code>title</code> in cart.
-     */
-    public void searchCart(String title){
-        long count = itemsOrdered.stream().filter(dvd -> dvd.isMatch(title)).count();
-        System.out.format("There are %d disc(s) with title \"%s\" in your cart.\n", count, title);
+
+    public Media searchCart(String title) {
+        return itemsOrdered.stream().filter(media -> media.getTitle().equalsIgnoreCase(title)).findFirst().orElse(null);
+    }
+
+    public void sortCartByTitle(){
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+    }
+    public void sortCartByCost(){
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
     }
 }
