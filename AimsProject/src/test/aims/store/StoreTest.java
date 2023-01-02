@@ -3,7 +3,7 @@ package test.aims.store;
 import main.aims.store.Store;
 import test.resources.MediaObjects;
 
-public class StoreScreenTest extends MediaObjects {
+public class StoreTest extends MediaObjects {
     public static void main(String[] args) {
 
         // Lab3: test addDvd and removeDvd methods

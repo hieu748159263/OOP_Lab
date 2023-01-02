@@ -60,10 +60,12 @@ public class CompactDisc extends Disc {
         return String.format("%s - %s - %s - %d minute(s): %.2f$", title, category, artist, getLength(), cost);
     }
 
-    public void play() {
-        System.out.println("Playing CD: " + this.getTitle());
-        System.out.println("CD length: " + this.getLength() + " minute(s)");
+    public String play() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Playing CD: " + this.getTitle() + "\n");
+        sb.append("CD length: " + this.getLength() + " minute(s)" + "\n");
         for (Track track : tracks)
-            track.play();
+            sb.append(track.play());
+        return sb.toString();
     }
 }

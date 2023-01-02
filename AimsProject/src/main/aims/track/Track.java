@@ -22,9 +22,8 @@ public class Track implements Playable{
         this.length = length;
     }
 
-    public void play() {
-        System.out.println("Playing track: " + this.getTitle());
-        System.out.println("Track length: " + this.getLength());
+    public String play() {
+        return String.format("Playing track: %s - %d minute(s)\n", title, length);
     }
 
     @Override

@@ -21,8 +21,10 @@ public class DigitalVideoDisc extends Disc {
         super(++nbDigitalVideoDisc, title, category, cost, director, length);
     }
 
-    public void play() {
-        System.out.println("Playing DVD: " + this.getTitle());
-        System.out.println("DVD length: " + this.getLength() + " minute(s)");
+    public String play() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Playing DVD: " + this.getTitle() + "\n");
+        sb.append("DVD length: " + this.getLength() + " minute(s)" + "\n");
+        return sb.toString();
     }
 }

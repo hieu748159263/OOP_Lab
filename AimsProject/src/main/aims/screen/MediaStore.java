@@ -1,6 +1,8 @@
 package main.aims.screen;
 
 import java.awt.*;
+import java.awt.event.*;
+
 import javax.swing.*;
 
 import main.aims.media.Media;
@@ -22,9 +24,46 @@ public class MediaStore extends JPanel {
 
         JPanel container = new JPanel();
         container.setLayout(new FlowLayout(FlowLayout.CENTER));
-        container.add(new JButton("Add to cart"));
+
+        JButton addToCart = new JButton("Add to cart");
+        addToCart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new JDialog() {
+                    {
+                        this.setTitle("Notify");
+                        this.setSize(400, 200);
+
+                        this.setLayout(new FlowLayout(FlowLayout.CENTER));
+                        this.add(new JLabel(media.getTitle() + " added to cart!"));
+
+                        this.setVisible(true);
+                    }
+                };
+            };
+        });
+        container.add(addToCart);
+
         if (media instanceof Playable) {
-            container.add(new JButton("Play"));
+            JButton play = new JButton("Play");
+            play.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new JDialog() {
+                        {
+                            this.setTitle("Player");
+                            this.setSize(400, 200);
+
+                            this.setLayout(new FlowLayout(FlowLayout.CENTER));
+                            for (String line : ((Playable) media).play().split("\n"))
+                                this.add(new JLabel(line));
+
+                            this.setVisible(true);
+                        }
+                    };
+                }
+            });
+            container.add(play);
         }
 
         this.add(Box.createVerticalGlue());

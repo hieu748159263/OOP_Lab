@@ -7,5 +7,6 @@ public class DiscTest extends MediaObjects {
 
         // Lab3: test toString function
         System.out.println(dvd1.toString());
+        System.out.println(dvd1.play());
     }
 }

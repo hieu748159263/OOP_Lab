@@ -1,5 +1,5 @@
 package main.playable;
 
 public interface Playable {
-    public void play();
+    public String play();
 }
