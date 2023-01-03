@@ -24,7 +24,7 @@ public class Aims {
             store.addMedia(media);
     }
 
-    class PrintMenuGetChoice {
+    static class PrintMenuGetChoice {
 
         public static int welcome() {
             System.out.println("\nAIMS - Options: ");

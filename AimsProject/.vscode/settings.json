@@ -1,7 +1,17 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": [
+        "src"
+    ],
     "java.project.outputPath": "bin",
+    "java.debug.settings.vmArgs": "--module-path \"d:\\java/userlib\\javafx-sdk-19\\lib\" --add-modules=javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.web --add-reads javafx.graphics=ALL-UNNAMED --add-opens javafx.controls/com.sun.javafx.charts=ALL-UNNAMED --add-opens javafx.graphics/com.sun.javafx.iio=ALL-UNNAMED --add-opens javafx.graphics/com.sun.javafx.iio.common=ALL-UNNAMED --add-opens javafx.graphics/com.sun.javafx.css=ALL-UNNAMED --add-opens javafx.base/com.sun.javafx.runtime=ALL-UNNAMED",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ]
+        "d:\\java\\userlib\\javafx-sdk-19\\lib\\javafx.base.jar",
+        "d:\\java\\userlib\\javafx-sdk-19\\lib\\javafx.controls.jar",
+        "d:\\java\\userlib\\javafx-sdk-19\\lib\\javafx.fxml.jar",
+        "d:\\java\\userlib\\javafx-sdk-19\\lib\\javafx.graphics.jar",
+        "d:\\java\\userlib\\javafx-sdk-19\\lib\\javafx.media.jar",
+        "d:\\java\\userlib\\javafx-sdk-19\\lib\\javafx.swing.jar",
+        "d:\\java\\userlib\\javafx-sdk-19\\lib\\javafx.web.jar",
+        "d:\\java\\userlib\\javafx-sdk-19\\lib\\javafx-swt.jar"
+    ],
 }

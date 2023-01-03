@@ -1,16 +1,19 @@
 package main.aims.cart;
 
-import java.util.List;
-
-import main.aims.media.Media;
-
-import java.util.ArrayList;
 import java.util.Collections;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import main.aims.media.Media;
 
 public class Cart {
 
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private List<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+
+    public ObservableList<Media> getItemsOrdered() {
+        return itemsOrdered;
+    }
 
     public boolean addMedia(Media media) {
         if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
@@ -61,10 +64,11 @@ public class Cart {
         return itemsOrdered.stream().filter(media -> media.getTitle().equalsIgnoreCase(title)).findFirst().orElse(null);
     }
 
-    public void sortCartByTitle(){
+    public void sortCartByTitle() {
         Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
     }
-    public void sortCartByCost(){
+
+    public void sortCartByCost() {
         Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
     }
 }
