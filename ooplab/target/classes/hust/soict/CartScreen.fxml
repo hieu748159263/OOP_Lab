@@ -94,13 +94,8 @@
                 </TableView>
                 <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-<<<<<<< HEAD
-                        <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayPressed" text="Play" />
-                        <Button fx:id="btnRemove" layoutX="948.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnRemovePressed" text="Remove" />
-=======
                         <Button mnemonicParsing="false" text="Play" />
                         <Button layoutX="948.0" layoutY="17.0" mnemonicParsing="false" text="Remove" />
->>>>>>> e5b4648 (First cart screen implementation)
                     </buttons>
                 </ButtonBar>
             </children>
@@ -112,14 +107,6 @@
     <right>
         <VBox prefHeight="200.0" spacing="30.0" BorderPane.alignment="TOP_CENTER">
             <children>
-<<<<<<< HEAD
-                <Button mnemonicParsing="false" onAction="#btnPlaceOrderPressed" style="-fx-background-color: red;" text="Place order" textFill="WHITE">
-                    <font>
-                        <Font size="24.0" />
-                    </font>
-                </Button>
-=======
->>>>>>> e5b4648 (First cart screen implementation)
                 <HBox alignment="CENTER" spacing="10.0">
                     <children>
                         <Label text="Total:">
@@ -127,25 +114,18 @@
                                 <Font size="24.0" />
                             </font>
                         </Label>
-<<<<<<< HEAD
-                        <Label fx:id="labelTotalPrice" layoutX="10.0" layoutY="10.0" text="0 $" textFill="AQUA">
-=======
                         <Label layoutX="10.0" layoutY="10.0" text="0 $" textFill="AQUA">
->>>>>>> e5b4648 (First cart screen implementation)
                             <font>
                                 <Font size="24.0" />
                             </font>
                         </Label>
                     </children>
                 </HBox>
-<<<<<<< HEAD
-=======
                 <Button mnemonicParsing="false" style="-fx-background-color: red;" text="Place order" textFill="WHITE">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
->>>>>>> e5b4648 (First cart screen implementation)
             </children>
             <padding>
                 <Insets left="20.0" right="20.0" top="50.0" />

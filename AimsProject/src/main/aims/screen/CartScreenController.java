@@ -1,5 +1,6 @@
 package main.aims.screen;
 
+<<<<<<< HEAD
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -15,6 +16,14 @@ import main.aims.cart.Cart;
 import main.aims.exception.PlayerException;
 import main.aims.media.Media;
 import main.playable.Playable;
+=======
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import main.aims.cart.Cart;
+import main.aims.media.Media;
+>>>>>>> e5b4648 (First cart screen implementation)
 
 public class CartScreenController {
 
@@ -32,6 +41,7 @@ public class CartScreenController {
     @FXML
     private TableColumn<Media, Double> colMediaCost;
 
+<<<<<<< HEAD
     @FXML
     private Button btnPlay;
 
@@ -46,10 +56,20 @@ public class CartScreenController {
     }
 
     public void initalize() {
+=======
+    public CartScreenController(Cart cart) {
+        super();
+        this.cart = cart;
+    }
+
+    @FXML
+    private void initalize() {
+>>>>>>> e5b4648 (First cart screen implementation)
         colMediaTitle.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
         colMediaCategory.setCellValueFactory(new PropertyValueFactory<Media, String>("category"));
         colMediaCost.setCellValueFactory(new PropertyValueFactory<Media, Double>("cost"));
         tblMedia.setItems(cart.getItemsOrdered());
+<<<<<<< HEAD
         labelTotalPrice.setText(cart.totalCost() + " $");
 
         btnPlay.setVisible(false);
@@ -106,5 +126,7 @@ public class CartScreenController {
             cart.getItemsOrdered().clear();
         }
         alert.show();
+=======
+>>>>>>> e5b4648 (First cart screen implementation)
     }
 }

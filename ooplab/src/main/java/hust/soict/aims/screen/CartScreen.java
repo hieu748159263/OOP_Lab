@@ -1,4 +1,4 @@
-package main.aims.screen;
+package hust.soict.aims.screen;
 
 import java.io.IOException;
 
@@ -9,12 +9,13 @@ import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import main.aims.cart.Cart;
+import hust.soict.aims.cart.Cart;
 
 public class CartScreen extends JFrame {
     private Cart cart;
 
     public CartScreen(Cart cart) {
+        super();
         this.cart = cart;
 
         JFXPanel fxPanel = new JFXPanel();
@@ -26,14 +27,10 @@ public class CartScreen extends JFrame {
             @Override
             public void run() {
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/CartScreen.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("CartScreen.fxml"));
                     CartScreenController controller = new CartScreenController(cart);
                     loader.setController(controller);
                     Parent root = loader.load();
-<<<<<<< HEAD
-                    controller.initalize(); // Controller does not automatically initialize
-=======
->>>>>>> e5b4648 (First cart screen implementation)
                     fxPanel.setScene(new Scene(root));
                 } catch (IOException e) {
                     e.printStackTrace();
