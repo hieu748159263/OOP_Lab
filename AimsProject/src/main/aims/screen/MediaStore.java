@@ -5,6 +5,7 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+import main.aims.exception.PlayerException;
 import main.aims.media.Media;
 import main.playable.Playable;
 
@@ -49,18 +50,22 @@ public class MediaStore extends JPanel {
             play.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    new JDialog() {
-                        {
-                            this.setTitle("Player");
-                            this.setSize(400, 200);
+                    try {
+                        new JDialog() {
+                            {
+                                this.setTitle("Player");
+                                this.setSize(400, 200);
 
-                            this.setLayout(new FlowLayout(FlowLayout.CENTER));
-                            for (String line : ((Playable) media).play().split("\n"))
-                                this.add(new JLabel(line));
+                                this.setLayout(new FlowLayout(FlowLayout.CENTER));
+                                for (String line : ((Playable) media).play().split("\n"))
+                                    this.add(new JLabel(line));
 
-                            this.setVisible(true);
-                        }
-                    };
+                                this.setVisible(true);
+                            }
+                        };
+                    } catch (PlayerException e1) {
+                        e1.printStackTrace();
+                    }
                 }
             });
             container.add(play);
