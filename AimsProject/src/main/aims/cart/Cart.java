@@ -2,6 +2,8 @@ package main.aims.cart;
 
 import java.util.Collections;
 
+import javax.naming.LimitExceededException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import main.aims.media.Media;
@@ -15,9 +17,9 @@ public class Cart {
         return itemsOrdered;
     }
 
-    public boolean addMedia(Media media) {
+    public boolean addMedia(Media media) throws LimitExceededException {
         if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
-            return false;
+            throw new LimitExceededException("Error: Cart is full. Can't add!");
         }
         itemsOrdered.add(media);
         return true;

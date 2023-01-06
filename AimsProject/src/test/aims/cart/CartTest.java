@@ -1,5 +1,7 @@
 package test.aims.cart;
 
+import javax.naming.LimitExceededException;
+
 import main.aims.cart.Cart;
 import main.aims.media.disc.DigitalVideoDisc;
 import test.resources.MediaObjects;
@@ -10,7 +12,11 @@ public class CartTest extends MediaObjects {
         Cart cart = new Cart();
 
         // Lab3: Test overloaded function
-        cart.addMedia(dvd1);
+        try {
+            cart.addMedia(dvd1);
+        } catch (LimitExceededException e) {
+            e.printStackTrace();
+        }
         // Works for both array and varagrs
         cart.addMedia(new DigitalVideoDisc[] { dvd1, dvd2, dvd3, dvd1, dvd3, dvd2, dvd1 });
         // Works for varagrs only
