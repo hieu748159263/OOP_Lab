@@ -95,12 +95,17 @@
                 <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayPressed" text="Play" />
                         <Button fx:id="btnRemove" layoutX="948.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnRemovePressed" text="Remove" />
 =======
                         <Button mnemonicParsing="false" text="Play" />
                         <Button layoutX="948.0" layoutY="17.0" mnemonicParsing="false" text="Remove" />
 >>>>>>> e5b4648 (First cart screen implementation)
+=======
+                        <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayPressed" text="Play" />
+                        <Button fx:id="btnRemove" layoutX="948.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnRemovePressed" text="Remove" />
+>>>>>>> d0a4eec (scenebuilder fxml update)
                     </buttons>
                 </ButtonBar>
             </children>
@@ -113,13 +118,19 @@
         <VBox prefHeight="200.0" spacing="30.0" BorderPane.alignment="TOP_CENTER">
             <children>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d0a4eec (scenebuilder fxml update)
                 <Button mnemonicParsing="false" onAction="#btnPlaceOrderPressed" style="-fx-background-color: red;" text="Place order" textFill="WHITE">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
+<<<<<<< HEAD
 =======
 >>>>>>> e5b4648 (First cart screen implementation)
+=======
+>>>>>>> d0a4eec (scenebuilder fxml update)
                 <HBox alignment="CENTER" spacing="10.0">
                     <children>
                         <Label text="Total:">
@@ -128,16 +139,21 @@
                             </font>
                         </Label>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <Label fx:id="labelTotalPrice" layoutX="10.0" layoutY="10.0" text="0 $" textFill="AQUA">
 =======
                         <Label layoutX="10.0" layoutY="10.0" text="0 $" textFill="AQUA">
 >>>>>>> e5b4648 (First cart screen implementation)
+=======
+                        <Label fx:id="labelTotalPrice" layoutX="10.0" layoutY="10.0" text="0 $" textFill="AQUA">
+>>>>>>> d0a4eec (scenebuilder fxml update)
                             <font>
                                 <Font size="24.0" />
                             </font>
                         </Label>
                     </children>
                 </HBox>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                 <Button mnemonicParsing="false" style="-fx-background-color: red;" text="Place order" textFill="WHITE">
@@ -146,6 +162,8 @@
                     </font>
                 </Button>
 >>>>>>> e5b4648 (First cart screen implementation)
+=======
+>>>>>>> d0a4eec (scenebuilder fxml update)
             </children>
             <padding>
                 <Insets left="20.0" right="20.0" top="50.0" />
