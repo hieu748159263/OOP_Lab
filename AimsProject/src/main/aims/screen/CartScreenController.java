@@ -46,10 +46,12 @@ public class CartScreenController {
     }
 
     public void initalize() {
+
         colMediaTitle.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
         colMediaCategory.setCellValueFactory(new PropertyValueFactory<Media, String>("category"));
         colMediaCost.setCellValueFactory(new PropertyValueFactory<Media, Double>("cost"));
         tblMedia.setItems(cart.getItemsOrdered());
+
         labelTotalPrice.setText(cart.totalCost() + " $");
 
         btnPlay.setVisible(false);

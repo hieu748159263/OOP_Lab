@@ -2,7 +2,10 @@ package main.aims;
 
 import java.util.Scanner;
 
+import javax.naming.LimitExceededException;
+
 import main.aims.cart.Cart;
+import main.aims.exception.PlayerException;
 import main.aims.media.Media;
 import main.aims.media.book.Book;
 import main.aims.media.disc.CompactDisc;
@@ -159,15 +162,23 @@ public class Aims {
                         foundMedia.printDetail();
                         switch (PrintMenuGetChoice.mediaDetails()) {
                             case 1:
-                                if (!cart.addMedia(foundMedia))
-                                    System.out.println("The cart is full. Can't add more!");
-                                else
-                                    System.out.println("Added to cart successfully!");
+                                try {
+                                    if (!cart.addMedia(foundMedia))
+                                        System.out.println("The cart is full. Can't add more!");
+                                    else
+                                        System.out.println("Added to cart successfully!");
+                                } catch (LimitExceededException e1) {
+                                    e1.printStackTrace();
+                                }
                                 break;
                             case 2:
                                 if (foundMedia instanceof Disc) {
                                     Disc foundDisc = (Disc) foundMedia;
-                                    foundDisc.play();
+                                    try {
+                                        foundDisc.play();
+                                    } catch (PlayerException e) {
+                                        e.printStackTrace();
+                                    }
                                 } else {
                                     System.out.println("Media is not CD or DVD. Can't play!");
                                 }
@@ -189,10 +200,14 @@ public class Aims {
                     if (foundMedia == null) {
                         System.out.println("Media not found!");
                     } else {
-                        if (cart.addMedia(foundMedia))
-                            System.out.println("Added to cart successfully!");
-                        else
-                            System.out.println("The media is already in the store. Can't add!");
+                        try {
+                            if (cart.addMedia(foundMedia))
+                                System.out.println("Added to cart successfully!");
+                            else
+                                System.out.println("The media is already in the store. Can't add!");
+                        } catch (LimitExceededException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
                     break;
@@ -204,7 +219,11 @@ public class Aims {
                         System.out.println("Media not found!");
                     } else if (foundMedia instanceof Disc) {
                         Disc foundDisc = (Disc) foundMedia;
-                        foundDisc.play();
+                        try {
+                            foundDisc.play();
+                        } catch (PlayerException e) {
+                            e.printStackTrace();
+                        }
                     } else {
                         System.out.println("Media is not CD or DVD. Can't play!");
                     }
@@ -383,7 +402,11 @@ public class Aims {
                         System.out.println("Media not found!");
                     } else if (foundMedia instanceof Disc) {
                         Disc foundDisc = (Disc) foundMedia;
-                        foundDisc.play();
+                        try {
+                            foundDisc.play();
+                        } catch (PlayerException e) {
+                            e.printStackTrace();
+                        }
                     } else {
                         System.out.println("Media is not CD or DVD. Can't play!");
                     }
