@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import main.aims.exception.PlayerException;
 import main.aims.track.Track;
 
 public class CompactDisc extends Disc {
@@ -60,12 +61,19 @@ public class CompactDisc extends Disc {
         return String.format("%s - %s - %s - %d minute(s): %.2f$", title, category, artist, getLength(), cost);
     }
 
-    public String play() {
+    public String play() throws PlayerException {
+        if (this.getLength() <= 0) {
+            throw new PlayerException("ERROR: CD length is non-positive!");
+        }
         StringBuilder sb = new StringBuilder();
         sb.append("Playing CD: " + this.getTitle() + "\n");
         sb.append("CD length: " + this.getLength() + " minute(s)" + "\n");
         for (Track track : tracks)
-            sb.append(track.play());
+            try {
+                sb.append(track.play());
+            } catch (PlayerException e) {
+                throw e;
+            }
         return sb.toString();
     }
 }

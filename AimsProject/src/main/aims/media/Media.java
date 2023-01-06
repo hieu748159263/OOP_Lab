@@ -50,9 +50,13 @@ public abstract class Media {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof Media))
-            return false;
-        return this.id == ((Media) obj).id;
+    public boolean equals(Object obj) throws NullPointerException, ClassCastException{
+        if (obj == null) {
+            throw new NullPointerException("Object is null!");
+        } else if (!(obj instanceof Media)) {
+            throw new ClassCastException("Object is not Media!");
+        }
+        Media media = (Media) obj;
+        return this.title.equalsIgnoreCase(media.title);
     }
 }
