@@ -1,6 +1,9 @@
 package main.aims.screen;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> aa3daabf57abc55b8c9e0dbf8db81696669fb6f2
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -16,6 +19,7 @@ import main.aims.cart.Cart;
 import main.aims.exception.PlayerException;
 import main.aims.media.Media;
 import main.playable.Playable;
+<<<<<<< HEAD
 =======
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -29,6 +33,8 @@ import main.aims.cart.Cart;
 import main.aims.exception.PlayerException;
 import main.aims.media.Media;
 >>>>>>> e5b4648 (First cart screen implementation)
+=======
+>>>>>>> aa3daabf57abc55b8c9e0dbf8db81696669fb6f2
 
 public class CartScreenController {
 
@@ -47,6 +53,9 @@ public class CartScreenController {
     private TableColumn<Media, Double> colMediaCost;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> aa3daabf57abc55b8c9e0dbf8db81696669fb6f2
     @FXML
     private Button btnPlay;
 
@@ -61,6 +70,7 @@ public class CartScreenController {
     }
 
     public void initalize() {
+<<<<<<< HEAD
 =======
     public CartScreenController(Cart cart) {
         this.cart = cart;
@@ -69,11 +79,16 @@ public class CartScreenController {
     @FXML
     private void initalize() {
 >>>>>>> e5b4648 (First cart screen implementation)
+=======
+>>>>>>> aa3daabf57abc55b8c9e0dbf8db81696669fb6f2
         colMediaTitle.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
         colMediaCategory.setCellValueFactory(new PropertyValueFactory<Media, String>("category"));
         colMediaCost.setCellValueFactory(new PropertyValueFactory<Media, Double>("cost"));
         tblMedia.setItems(cart.getItemsOrdered());
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> aa3daabf57abc55b8c9e0dbf8db81696669fb6f2
         labelTotalPrice.setText(cart.totalCost() + " $");
 
         btnPlay.setVisible(false);
@@ -130,7 +145,10 @@ public class CartScreenController {
             cart.getItemsOrdered().clear();
         }
         alert.show();
+<<<<<<< HEAD
 =======
 >>>>>>> e5b4648 (First cart screen implementation)
+=======
+>>>>>>> aa3daabf57abc55b8c9e0dbf8db81696669fb6f2
     }
 }

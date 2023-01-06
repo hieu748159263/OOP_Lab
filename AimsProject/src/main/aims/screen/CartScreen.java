@@ -30,10 +30,7 @@ public class CartScreen extends JFrame {
                     CartScreenController controller = new CartScreenController(cart);
                     loader.setController(controller);
                     Parent root = loader.load();
-<<<<<<< HEAD
                     controller.initalize(); // Controller does not automatically initialize
-=======
->>>>>>> e5b4648 (First cart screen implementation)
                     fxPanel.setScene(new Scene(root));
                 } catch (IOException e) {
                     e.printStackTrace();
