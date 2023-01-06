@@ -17,7 +17,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0"
+    xmlns="http://javafx.com/javafx/19"
+    xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <VBox prefWidth="100.0" BorderPane.alignment="CENTER">
             <children>
@@ -94,23 +96,14 @@
                 </TableView>
                 <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
                         <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayPressed" text="Play" />
                         <Button fx:id="btnRemove" layoutX="948.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnRemovePressed" text="Remove" />
-=======
-                        <Button mnemonicParsing="false" text="Play" />
-                        <Button layoutX="948.0" layoutY="17.0" mnemonicParsing="false" text="Remove" />
->>>>>>> e5b4648 (First cart screen implementation)
-=======
-                        <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayPressed" text="Play" />
-                        <Button fx:id="btnRemove" layoutX="948.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnRemovePressed" text="Remove" />
->>>>>>> d0a4eec (scenebuilder fxml update)
-=======
-                        <Button fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayPressed" text="Play" />
-                        <Button fx:id="btnRemove" layoutX="948.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnRemovePressed" text="Remove" />
->>>>>>> aa3daabf57abc55b8c9e0dbf8db81696669fb6f2
+
+
+
+
                     </buttons>
                 </ButtonBar>
             </children>
@@ -122,26 +115,14 @@
     <right>
         <VBox prefHeight="200.0" spacing="30.0" BorderPane.alignment="TOP_CENTER">
             <children>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d0a4eec (scenebuilder fxml update)
-=======
->>>>>>> aa3daabf57abc55b8c9e0dbf8db81696669fb6f2
+
+
                 <Button mnemonicParsing="false" onAction="#btnPlaceOrderPressed" style="-fx-background-color: red;" text="Place order" textFill="WHITE">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e5b4648 (First cart screen implementation)
-=======
->>>>>>> d0a4eec (scenebuilder fxml update)
-=======
->>>>>>> aa3daabf57abc55b8c9e0dbf8db81696669fb6f2
+
                 <HBox alignment="CENTER" spacing="10.0">
                     <children>
                         <Label text="Total:">
@@ -149,39 +130,21 @@
                                 <Font size="24.0" />
                             </font>
                         </Label>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                         <Label fx:id="labelTotalPrice" layoutX="10.0" layoutY="10.0" text="0 $" textFill="AQUA">
-=======
-                        <Label layoutX="10.0" layoutY="10.0" text="0 $" textFill="AQUA">
->>>>>>> e5b4648 (First cart screen implementation)
-=======
-                        <Label fx:id="labelTotalPrice" layoutX="10.0" layoutY="10.0" text="0 $" textFill="AQUA">
->>>>>>> d0a4eec (scenebuilder fxml update)
-=======
-                        <Label fx:id="labelTotalPrice" layoutX="10.0" layoutY="10.0" text="0 $" textFill="AQUA">
->>>>>>> aa3daabf57abc55b8c9e0dbf8db81696669fb6f2
+
+
+
+
+
                             <font>
                                 <Font size="24.0" />
                             </font>
                         </Label>
                     </children>
                 </HBox>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                <Button mnemonicParsing="false" style="-fx-background-color: red;" text="Place order" textFill="WHITE">
-                    <font>
-                        <Font size="24.0" />
-                    </font>
-                </Button>
->>>>>>> e5b4648 (First cart screen implementation)
-=======
->>>>>>> d0a4eec (scenebuilder fxml update)
-=======
->>>>>>> aa3daabf57abc55b8c9e0dbf8db81696669fb6f2
+
+
+
             </children>
             <padding>
                 <Insets left="20.0" right="20.0" top="50.0" />
